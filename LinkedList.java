@@ -154,7 +154,12 @@ public class LinkedList {
 	 * @return the index of the block, or -1 if the block is not in this list
 	 */
 	public int indexOf(MemoryBlock block) {
-		//// Replace the following statement with your code
+		for (int i = 0; i < size; i++){
+			MemoryBlock examedBlock = getBlock(i);
+			if (examedBlock == block){
+				return i;
+			}
+		}
 		return -1;
 	}
 
