@@ -170,7 +170,22 @@ public class LinkedList {
 	 *        the node that will be removed from this list
 	 */
 	public void remove(Node node) {
-		//// Write your code here
+		int nodeIndex = indexOf(node.block);
+		
+		if (nodeIndex == 1){
+			this.first = null;
+			this.last = first;
+		}
+		if (nodeIndex == size){
+			Node prevNode = getNode(nodeIndex - 1);
+			this.last = prevNode;
+			this.last.next = null;
+		} else {
+			Node prevNode = getNode(nodeIndex - 1);
+			Node removeNode = getNode(nodeIndex);
+			prevNode.next = removeNode.next;
+		}
+		size --;
 	}
 
 	/**
