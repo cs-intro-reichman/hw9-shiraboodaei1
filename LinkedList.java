@@ -171,7 +171,7 @@ public class LinkedList {
 	 */
 	public void remove(Node node) {
 		int nodeIndex = indexOf(node.block);
-		
+
 		if (nodeIndex == 1){
 			this.first = null;
 			this.last = first;
@@ -196,7 +196,11 @@ public class LinkedList {
 	 *         if index is negative or greater than or equal to size
 	 */
 	public void remove(int index) {
-		//// Write your code here
+		if (index < 0 || index > size) {
+			throw new IllegalArgumentException("Index must be between 0 and size");
+		}
+		Node removeNode = getNode(index);
+		remove(removeNode);
 	}
 
 	/**
@@ -207,7 +211,8 @@ public class LinkedList {
 	 *         if the given memory block is not in this list
 	 */
 	public void remove(MemoryBlock block) {
-		//// Write your code here
+		int nodeIndex = indexOf(block);
+		remove(nodeIndex);
 	}	
 
 	/**
@@ -221,7 +226,11 @@ public class LinkedList {
 	 * A textual representation of this list, for debugging.
 	 */
 	public String toString() {
-		//// Replace the following statement with your code
-		return "";
+		String linkedListStr = "{ " + first + " , ";
+		for (int i = 0; i < size - 1; i++){
+			linkedListStr += getNode(i).next + " , ";
+		}
+		linkedListStr += last + "}";
+		return linkedListStr;
 	}
 }
