@@ -54,8 +54,11 @@ public class LinkedList {
 			throw new IllegalArgumentException(
 					"index must be between 0 and size");
 		}
-		//// Replace the following statement with your code
-		return null;
+		Node current = this.first;
+		for (int i = 0; i < index; i++){
+			current = current.next;
+		}
+		return current;
 	}
 	
 	/**
