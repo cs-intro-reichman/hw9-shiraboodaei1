@@ -93,7 +93,7 @@ public class LinkedList {
 				this.last = newNode;
 			}
 		}
-		if (index == size){
+		else if (index == size){
 			this.last.next = newNode;
 			this.last = newNode;
 			
@@ -172,11 +172,11 @@ public class LinkedList {
 	public void remove(Node node) {
 		int nodeIndex = indexOf(node.block);
 
-		if (nodeIndex == 1){
+		if (nodeIndex == 0){
 			this.first = null;
 			this.last = first;
 		}
-		if (nodeIndex == size){
+		if (nodeIndex == size - 1){
 			Node prevNode = getNode(nodeIndex - 1);
 			this.last = prevNode;
 			this.last.next = null;
