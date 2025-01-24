@@ -232,11 +232,18 @@ public class LinkedList {
 	 * A textual representation of this list, for debugging.
 	 */
 	public String toString() {
-		String linkedListStr = "{ " + first + " , ";
-		for (int i = 0; i < size - 1; i++){
-			linkedListStr += getNode(i).next + " , ";
+		String linkedListStr = "";
+    	ListIterator iterator = this.iterator();
+    
+		while (iterator.hasNext()) {
+			MemoryBlock block = iterator.next();
+			linkedListStr += block + ", ";
 		}
-		linkedListStr += last + "}";
+    
+		if (linkedListStr.length() > 0) {
+			linkedListStr = linkedListStr.substring(0, linkedListStr.length() - 2); 
+		}
+
 		return linkedListStr;
 	}
 }

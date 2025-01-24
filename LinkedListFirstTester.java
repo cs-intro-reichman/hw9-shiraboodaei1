@@ -7,6 +7,11 @@ public class LinkedListFirstTester {
         MemoryBlock block3 = new MemoryBlock(30, 30);
 
         list.addFirst(block1);
+
+        // Test string function 
+        // Expected output: (0, 10)
+        System.out.println("Test str: " + list);
+
         list.addLast(block3);
         list.add(1, block2);
 
