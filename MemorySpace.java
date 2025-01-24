@@ -88,7 +88,15 @@ public class MemorySpace {
 	 *            the starting address of the block to freeList
 	 */
 	public void free(int address) {
-		//// Write your code here
+		ListIterator iterator = allocatedList.iterator();
+		while (iterator.hasNext()){
+			MemoryBlock allocateBlock = iterator.next();
+			if (allocateBlock.baseAddress == address){
+				allocatedList.remove(allocateBlock);
+				freeList.addLast(allocateBlock);
+				break;
+			}
+		}
 	}
 	
 	/**
