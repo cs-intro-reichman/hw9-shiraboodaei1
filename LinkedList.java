@@ -176,12 +176,13 @@ public class LinkedList {
 			if (size == 1){
 				this.first = null;
 				this.last = first;
-			} else if (size > 1){
+			} else {
 				this.first = node.next;
+				this.last = this.first.next;
 			}
 			
 		}
-		if (nodeIndex == size - 1){
+		else if (nodeIndex == size - 1){
 			Node prevNode = getNode(nodeIndex - 1);
 			this.last = prevNode;
 			this.last.next = null;
