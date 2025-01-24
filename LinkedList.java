@@ -173,8 +173,13 @@ public class LinkedList {
 		int nodeIndex = indexOf(node.block);
 
 		if (nodeIndex == 0){
-			this.first = null;
-			this.last = first;
+			if (size == 1){
+				this.first = null;
+				this.last = first;
+			} else if (size > 1){
+				this.first = node.next;
+			}
+			
 		}
 		if (nodeIndex == size - 1){
 			Node prevNode = getNode(nodeIndex - 1);
