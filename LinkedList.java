@@ -170,16 +170,20 @@ public class LinkedList {
 	 *        the node that will be removed from this list
 	 */
 	public void remove(Node node) {
+		if (node == null || size == 0){
+			return;
+		}
+
 		int nodeIndex = indexOf(node.block);
 
-		if (nodeIndex < 0) {
+		if (nodeIndex == -1) {
 			throw new IllegalArgumentException("index must be between 0 and size");
 		}
 
 		if (nodeIndex == 0){
 			if (size == 1){
 				this.first = null;
-				this.last = first;
+				this.last = null;
 			} else {
 				this.first = node.next;
 				this.last = this.first.next;
