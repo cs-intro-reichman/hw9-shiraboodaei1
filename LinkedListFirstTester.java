@@ -34,10 +34,15 @@ public class LinkedListFirstTester {
         System.out.println("Test4: Index of block2: " + list.indexOf(block2)); 
 
         // Test removing elements
-        list.remove(block1);
+        list.remove(block1); // remove First block
+        list.remove(block2); // remove second block 
+        list.remove(block3); // remove third block
         
         // Expected output: block2, block3
         System.out.println("Test5: removing block1: " + list);
+
+        // remove from empth list 
+        list.remove(1);
         
         
 
