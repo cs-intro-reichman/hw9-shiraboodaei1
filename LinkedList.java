@@ -172,6 +172,10 @@ public class LinkedList {
 	public void remove(Node node) {
 		int nodeIndex = indexOf(node.block);
 
+		if (nodeIndex < 0) {
+			throw new IllegalArgumentException("index must be between 0 and size");
+		}
+
 		if (nodeIndex == 0){
 			if (size == 1){
 				this.first = null;
