@@ -123,12 +123,13 @@ public class MemorySpace {
 		while (iterator.hasNext()){
 			MemoryBlock currBlock = iterator.next();
 			int baseToFind = currBlock.baseAddress + currBlock.length;
-			while (iterator.hasNext()){
-				MemoryBlock nextBlock = iterator.next();
+			ListIterator iterator2 = freeList.iterator();
+			while (iterator2.hasNext()){
+				MemoryBlock nextBlock = iterator2.next();
 				if (nextBlock.baseAddress == baseToFind){
 					currBlock.length += nextBlock.length;
 					freeList.remove(nextBlock);
-					iterator.current = freeList.getFirst();
+					iterator2.current = freeList.getFirst();
 				}
 	}
 }}
