@@ -128,6 +128,7 @@ public class MemorySpace {
 				if (nextBlock.baseAddress == baseToFind){
 					currBlock.length += nextBlock.length;
 					freeList.remove(nextBlock);
+					iterator.current = freeList.getFirst();
 				}
 	}
 }}
