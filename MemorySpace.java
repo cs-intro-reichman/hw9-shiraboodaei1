@@ -123,21 +123,17 @@ public class MemorySpace {
 			return;
 		}
 		ListIterator iterator = freeList.iterator();
-		MemoryBlock prevBlock = iterator.next();
-
 		while (iterator.hasNext()){
 			MemoryBlock currBlock = iterator.next();
 			int baseToFind = currBlock.baseAddress + currBlock.length;
-			// ListIterator iterator2 = freeList.iterator();
-			// while (iterator.hasNext()){
-			// 	MemoryBlock nextBlock = iterator.next();
-				if (currBlock.baseAddress == baseToFind){
-					prevBlock.length += currBlock.length;
-					freeList.remove(currBlock);
-					iterator.current = freeList.getFirst();
-				} else {
-					prevBlock = currBlock;
+			ListIterator iterator2 = freeList.iterator();
+			while (iterator2.hasNext()){
+				MemoryBlock nextBlock = iterator2.next();
+				if (nextBlock.baseAddress == baseToFind){
+					currBlock.length += nextBlock.length;
+					freeList.remove(nextBlock);
+					iterator2.current = freeList.getFirst();
 				}
 	}
 }}
-
+}
